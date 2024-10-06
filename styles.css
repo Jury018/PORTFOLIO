@@ -1,4 +1,4 @@
-/* Reset and global styles */
+/* Original css file by Bon*/
 * {
     margin: 0;
     padding: 0;
@@ -19,55 +19,54 @@ body {
     top: 0;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Align items vertically */
-    padding: 0.5rem 1rem; /* Added padding */
+    align-items: center; 
+    padding: 0.5rem 1rem; 
     background: rgba(0, 0, 0, 0.7);
     z-index: 10;
-    transition: background 0.3s ease; /* Smooth background transition */
+    transition: background 0.3s ease; 
 }
 
 .navbar:hover {
-    background: rgba(0, 0, 0, 0.9); /* Darker background on hover */
+    background: rgba(0, 0, 0, 0.9); 
 }
 
 .navbar ul {
     list-style: none;
     display: flex;
     align-items: center;
-    margin-left: auto; /* Added to align items */
+    margin-left: auto; 
 }
 
-/* Navbar Links */
 .navbar-links {
-    display: none; /* Initially hide the menu */
+    display: none; 
 }
 
 .navbar-links.active {
-    display: flex; /* Show the menu when active */
-    flex-direction: column; /* Change to column layout */
+    display: flex;
+    flex-direction: column; 
 }
 
 /* Navbar Links */
 .navbar ul li {
-    margin: 0 15px; /* Space between links */
-    position: relative; /* For positioning pseudo-element */
+    margin: 0 15px; 
+    position: relative; 
 }
 
 .navbar ul li a {
     text-decoration: none;
     color: #fff;
-    padding: 10px 15px; /* Added padding for clickable area */
-    transition: color 0.3s, transform 0.3s; /* Smooth color and transform transition */
+    padding: 10px 15px; 
+    transition: color 0.3s, transform 0.3s; 
 }
 
 .navbar ul li a:hover {
-    color: #ff4c4c; /* Change color on hover */
-    transform: translateY(-3px); /* Slight lift effect on hover */
+    color: #ff4c4c;
+    transform: translateY(-3px); 
 }
 
-/* Hamburger Menu */
+/* Yummburger Menu */
 .hamburger {
-    display: none; /* Hide by default */
+    display: none; 
     flex-direction: column;
     cursor: pointer;
 }
@@ -85,25 +84,25 @@ body {
     .navbar ul {
         flex-direction: column;
         position: absolute;
-        top: 60px; /* Adjust based on navbar height */
+        top: 60px; 
         left: 0;
         width: 100%;
         background-color: rgba(0, 0, 0, 0.9);
-        display: none; /* Hide by default */
-        padding: 1rem; /* Added padding for mobile menu */
+        display: none; 
+        padding: 1rem;
     }
 
-    .navbar-links.active {
-        display: flex; /* Show when active */
+.navbar-links.active {
+        display: flex; 
     }
 
-    .hamburger {
-        display: flex; /* Show hamburger icon */
+.hamburger {
+        display: flex;
     }
 
-    .navbar ul li {
-        margin: 1rem 0; /* Space out links */
-        text-align: center; /* Center align text */
+.navbar ul li {
+        margin: 1rem 0; 
+        text-align: center; 
     }
 }
 
@@ -132,32 +131,50 @@ body {
 }
 
 .hero-button {
-    padding: 1rem 2rem;
+    display: inline-block; 
+    padding: 1rem 2rem; 
     background-color: #ff4c4c;
     color: white;
     border: none;
-    border-radius: 25px;
+    border-radius: 25px; 
     cursor: pointer;
     font-weight: bold;
     transition: background-color 0.3s, transform 0.3s;
+    margin-top: 1rem; 
 }
 
-.hero-button:hover {
-    background-color: #e63b3b;
-    transform: translateY(-5px);
+@media (max-width: 768px) {
+    .hero-content {
+        text-align: center; 
+    }
+
+.hero-button {
+        width: 80%; 
+        padding: 1rem; 
+    }
 }
 
-.hero-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%;
-    border: 5px solid #ff4c4c;
-    transition: transform 0.3s;
+.hero-image-container {
+    overflow: hidden; 
+    border-radius: 50%; 
+    width: 300px; 
+    height: 300px; 
+    margin: 0 auto; 
 }
 
-.hero-image img:hover {
-    transform: rotate(5deg);
+.hero-image {
+    width: 100%; 
+    height: auto; 
+    object-fit: cover; 
 }
+
+@media (max-width: 768px) {
+    .hero-image-container {
+        width: 200px; 
+        height: 200px;
+    }
+}
+
 
 /* About Section */
 .about-section {
@@ -365,16 +382,61 @@ body {
     z-index: 999;
 }
 
-/* View Project Button */
+/* Project Button */
 .view-demo-button {
     display: inline-block;
-    margin: 10px 0; /* Adjust margin for better spacing */
+    margin: 10px 0; 
 }
 
-/* Ensure the button is responsive */
+
 @media (max-width: 768px) {
     .view-demo-button {
-        width: 90%; /* Full width on small screens */
-        padding: 10px 0; /* Adjust padding */
+        width: 90%; 
+        padding: 10px 0;
     }
 }
+
+/* General Enhancements */
+@media (max-width: 768px) {
+    .project-cards,
+    .education-container,
+    .skills-container {
+        flex-direction: column;
+        align-items: center; 
+    }
+
+.card, .education-item, .skill {
+        width: 90%; 
+        margin: 10px 0; 
+    }
+}
+
+/* Scroll Progress */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: #ff4c4c;
+    transition: width 0.2s ease;
+}
+
+/* Animations on Scroll */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* fade-in effect to sections */
+.section {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards; 
+}
+
+/* more updates to come */
