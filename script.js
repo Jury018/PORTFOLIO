@@ -1,18 +1,11 @@
-// script.js
-
-// Hamburger Menu Toggle
+// Yummburger Menu Toggle
 function toggleMenu() {
     const navbarLinks = document.getElementById("navbar-links");
     navbarLinks.classList.toggle("active");
 }
 
-// Attach the event listener after defining the function
 document.getElementById("hamburger").addEventListener("click", toggleMenu);
 
-// Scroll Progress Bar
-window.onscroll = function() {
-    updateProgressBar();
-};
 
 function updateProgressBar() {
     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -27,3 +20,18 @@ AOS.init({
     easing: "ease-in-out",
     once: true
 });
+
+// Scroll Progress
+window.addEventListener("scroll", () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercentage = (scrollTop / scrollHeight) * 100;
+
+window.onscroll = function() {
+    updateProgressBar();
+};
+
+    document.querySelector('.scroll-progress').style.width = `${scrollPercentage}%`;
+});
+
+//more updates to come sabi ko 
