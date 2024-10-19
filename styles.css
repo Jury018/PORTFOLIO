@@ -8,8 +8,30 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #111;
-    color: #fff;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode Variables */
+:root {
+    --bg-color: #111;
+    --text-color: #fff;
+    --accent-color: #ff4c4c;
+    --card-bg: #222;
+    --nav-bg: rgba(0, 0, 0, 0.7); 
+    --nav-bg-hover: rgba(0, 0, 0, 0.9);
+    --hero-gradient: linear-gradient(45deg, #141414, #222);
+}
+
+body.dark-mode {
+    --bg-color: #fff;
+    --text-color: #111;
+    --accent-color: #007bff; 
+    --card-bg: #f8f9fa;
+    --nav-bg: rgba(255, 255, 255, 0.9); 
+    --nav-bg-hover: rgba(255, 255, 255, 1);
+    --hero-gradient: linear-gradient(45deg, #f8f9fa, #dee2e6); 
 }
 
 /* Navbar */
@@ -21,13 +43,13 @@ body {
     justify-content: space-between;
     align-items: center; 
     padding: 0.5rem 1rem; 
-    background: rgba(0, 0, 0, 0.7);
+    background: var(--nav-bg);
     z-index: 10;
     transition: background 0.3s ease; 
 }
 
 .navbar:hover {
-    background: rgba(0, 0, 0, 0.9); 
+    background: var(--nav-bg-hover);
 }
 
 .navbar ul {
@@ -54,17 +76,17 @@ body {
 
 .navbar ul li a {
     text-decoration: none;
-    color: #fff;
+    color: var(--text-color); /* Use variable for link color */
     padding: 10px 15px; 
     transition: color 0.3s, transform 0.3s; 
 }
 
 .navbar ul li a:hover {
-    color: #ff4c4c;
+    color: var(--accent-color); /* Use variable for hover color */
     transform: translateY(-3px); 
 }
 
-/* Yummburger Menu */
+/* Hamburger Menu */
 .hamburger {
     display: none; 
     flex-direction: column;
@@ -74,7 +96,7 @@ body {
 .line {
     height: 3px;
     width: 25px;
-    background-color: #fff;
+    background-color: var(--text-color); /* Use variable for hamburger color */
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -87,20 +109,20 @@ body {
         top: 60px; 
         left: 0;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: var(--nav-bg); /* Use variable for background */
         display: none; 
         padding: 1rem;
     }
 
-.navbar-links.active {
+    .navbar-links.active {
         display: flex; 
     }
 
-.hamburger {
+    .hamburger {
         display: flex;
     }
 
-.navbar ul li {
+    .navbar ul li {
         margin: 1rem 0; 
         text-align: center; 
     }
@@ -113,7 +135,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0 5%;
-    background: linear-gradient(45deg, #141414, #222);
+    background: var(--hero-gradient); /* Use the gradient variable */
 }
 
 .hero-content {
@@ -122,18 +144,19 @@ body {
 
 .hero-content h1 {
     font-size: 3rem;
-    color: #ff4c4c;
+    color: var(--accent-color); /* Use variable for heading color */
 }
 
 .hero-content p {
     font-size: 1.5rem;
     margin: 1rem 0;
+    color: var(--text-color); /* Use variable for text color */
 }
 
 .hero-button {
     display: inline-block; 
     padding: 1rem 2rem; 
-    background-color: #ff4c4c;
+    background-color: var(--accent-color); /* Use variable for button color */
     color: white;
     border: none;
     border-radius: 25px; 
@@ -148,7 +171,7 @@ body {
         text-align: center; 
     }
 
-.hero-button {
+    .hero-button {
         width: 80%; 
         padding: 1rem; 
     }
@@ -175,36 +198,36 @@ body {
     }
 }
 
-
 /* About Section */
 .about-section {
     padding: 50px 5%;
-    background-color: #111;
+    background-color: var(--bg-color); /* Use variable for background color */
     text-align: center;
 }
 
 .about-section h2 {
     font-size: 2.5rem;
-    color: #ff4c4c;
+    color: var(--accent-color); /* Use variable for heading color */
 }
 
 .about-section p {
     font-size: 1.2rem;
     margin-top: 20px;
-    color: #ddd;
+    color: var(--text-color); /* Use variable for text color */
     line-height: 1.6;
 }
+
 
 /* Projects Section */
 .projects-section {
     padding: 50px 5%;
-    background-color: #141414;
+    background-color: var(--card-bg); 
     text-align: center;
 }
 
 .projects-section h2 {
     font-size: 2.5rem;
-    color: #ff4c4c;
+    color: var(--accent-color); 
 }
 
 .project-cards {
@@ -215,7 +238,7 @@ body {
 }
 
 .card {
-    background-color: #222;
+    background-color: var(--card-bg); 
     border-radius: 10px;
     width: 300px;
     padding: 20px;
@@ -228,15 +251,15 @@ body {
     transform: scale(1.05);
 }
 
-.card h3 {
-    color: #fff;
+.card h3 {  /* Target the project titles */
+    color: var(--text-color);  /* Use variable for project title color */
     margin-bottom: 20px;
 }
 
 .view-demo-button {
     text-decoration: none;
-    color: #fff;
-    background-color: #ff4c4c;
+    color: #fff; /* Keep this white for contrast */
+    background-color: var(--accent-color);
     padding: 10px 20px;
     border-radius: 25px;
     font-weight: bold;
@@ -251,13 +274,13 @@ body {
 /* Education Section */
 .education-section {
     padding: 50px 5%;
-    background-color: #111;
+    background-color: var(--bg-color); 
     text-align: center;
 }
 
 .education-section h2 {
     font-size: 2.5rem;
-    color: #ff4c4c;
+    color: var(--accent-color); 
 }
 
 .education-container {
@@ -268,7 +291,7 @@ body {
 }
 
 .education-item {
-    background-color: #222;
+    background-color: var(--card-bg); 
     border-radius: 10px;
     width: 250px;
     padding: 20px;
@@ -282,20 +305,24 @@ body {
 }
 
 .education-item h3 {
-    color: #fff;
+    color: var(--text-color);  /* Use variable for heading color */
     margin-bottom: 10px;
+}
+
+.education-item p {
+    color: var(--text-color);  /* Use variable for text color */
 }
 
 /* Skills Section */
 .skills-section {
     padding: 50px 5%;
-    background-color: #141414;
+    background-color: var(--card-bg);
     text-align: center;
 }
 
 .skills-section h2 {
     font-size: 2.5rem;
-    color: #ff4c4c;
+    color: var(--accent-color);
 }
 
 .skills-container {
@@ -306,7 +333,7 @@ body {
 }
 
 .skill {
-    background-color: #222;
+    background-color: var(--card-bg);
     border-radius: 10px;
     width: 200px;
     padding: 20px;
@@ -325,36 +352,36 @@ body {
 }
 
 .skill h3 {
-    color: #fff;
+    color: var(--text-color);  /* Use variable for heading color */
     margin-bottom: 10px;
 }
 
 .progress-bar {
-    background-color: #333;
+    background-color: #333; 
     border-radius: 25px;
     width: 100%;
     height: 20px;
 }
 
 .progress {
-    background-color: #ff4c4c;
+    background-color: var(--accent-color);  /* Use variable for progress bar color */
     height: 100%;
     border-radius: 25px;
     line-height: 20px;
-    color: #fff;
+    color: #fff; /* White text for contrast */
     text-align: center;
 }
 
 /* Social Media Section */
 .connect-section {
     padding: 50px 5%;
-    background-color: #111;
+    background-color: var(--bg-color);
     text-align: center;
 }
 
 .connect-section h2 {
     font-size: 2.5rem;
-    color: #ff4c4c;
+    color: var(--accent-color);
 }
 
 .social-media-icons {
@@ -365,6 +392,15 @@ body {
     width: 50px;
     margin: 0 20px;
     transition: transform 0.3s;
+    filter: var(--icon-filter); /* Apply filter to icons */
+}
+
+:root {
+  --icon-filter: none; /* Default: no filter */
+}
+
+body.dark-mode {
+  --icon-filter: invert(1); /* Invert colors in dark mode */
 }
 
 .social-media-icons img:hover {
@@ -378,9 +414,10 @@ body {
     left: 0;
     width: 0;
     height: 5px;
-    background-color: #ff4c4c;
+    background-color: var(--accent-color); /* Use variable for scroll progress color */
     z-index: 999;
 }
+
 
 /* Project Button */
 .view-demo-button {
@@ -438,4 +475,25 @@ body {
     opacity: 0;
     animation: fadeIn 0.5s forwards; 
 }
-/* more updates to come */
+
+// ... your existing JavaScript ...
+
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// On page load, check if the user has a preference
+if (localStorage.getItem('theme') === 'dark') {
+    body.classList.add('dark-mode');
+}
+
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+
+    // Save the preference
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+    } else {
+        localStorage.setItem('theme', 'light');
+    }
+});
+/* more updates to come */        
