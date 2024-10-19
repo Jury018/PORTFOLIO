@@ -103,7 +103,7 @@ function checkTransition() {
           const windowHeight = window.innerHeight;
           const isInViewport = sectionTop < windowHeight && sectionTop > 0;
 
-          if (isInViewport) { 
+          if (isInViewport) {
             const textElements = section.querySelectorAll('h2, p, h3, a');
             textElements.forEach(element => {
               element.style.opacity = 1;
@@ -125,20 +125,17 @@ function checkTransition() {
   });
 }
 
+window.addEventListener('beforeunload', () => {
+  window.scrollTo(0, 0);
+});
+
+// Ensure the page starts at the top on load
 window.addEventListener('DOMContentLoaded', () => {
-  // After the page loads, scroll to the top
   window.scrollTo({
     top: 0,
-    behavior: 'smooth' // Optional: Add smooth scrolling for a better visual effect
+    behavior: 'smooth' 
   });
-
-  // Or, if you want to scroll to a specific element (e.g., the "Welcome to My Portfolio" heading):
-  // const targetElement = document.querySelector('#home h1'); 
-  // if (targetElement) {
-  //   targetElement.scrollIntoView({ behavior: 'smooth' });
-  // }
 });
 
 
 checkTransition();
-
