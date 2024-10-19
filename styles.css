@@ -525,7 +525,6 @@ body.dark-mode {
 #education h2,
 #education h3,
 #education p,
-#skills h2,
 #connect h2 {
   transition: opacity 1.5s ease-in-out, transform 0.5s ease-in-out;
   opacity: 0;
