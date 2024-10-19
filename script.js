@@ -126,12 +126,19 @@ function checkTransition() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  window.scrollTo(0, 0);
+  // After the page loads, scroll to the top
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Optional: Add smooth scrolling for a better visual effect
+  });
+
+  // Or, if you want to scroll to a specific element (e.g., the "Welcome to My Portfolio" heading):
+  // const targetElement = document.querySelector('#home h1'); 
+  // if (targetElement) {
+  //   targetElement.scrollIntoView({ behavior: 'smooth' });
+  // }
 });
 
-window.addEventListener('beforeunload', () => {
-  window.scrollTo(0, 0);
-});
 
 checkTransition();
 
