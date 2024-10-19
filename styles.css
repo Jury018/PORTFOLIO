@@ -76,13 +76,13 @@ body.dark-mode {
 
 .navbar ul li a {
     text-decoration: none;
-    color: var(--text-color); /* Use variable for link color */
+    color: var(--text-color); 
     padding: 10px 15px; 
     transition: color 0.3s, transform 0.3s; 
 }
 
 .navbar ul li a:hover {
-    color: var(--accent-color); /* Use variable for hover color */
+    color: var(--accent-color);
     transform: translateY(-3px); 
 }
 
@@ -96,7 +96,7 @@ body.dark-mode {
 .line {
     height: 3px;
     width: 25px;
-    background-color: var(--text-color); /* Use variable for hamburger color */
+    background-color: var(--text-color); 
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -109,7 +109,7 @@ body.dark-mode {
         top: 60px; 
         left: 0;
         width: 100%;
-        background-color: var(--nav-bg); /* Use variable for background */
+        background-color: var(--nav-bg);
         display: none; 
         padding: 1rem;
     }
@@ -135,7 +135,7 @@ body.dark-mode {
     align-items: center;
     justify-content: space-between;
     padding: 0 5%;
-    background: var(--hero-gradient); /* Use the gradient variable */
+    background: var(--hero-gradient);
 }
 
 .hero-content {
@@ -144,19 +144,19 @@ body.dark-mode {
 
 .hero-content h1 {
     font-size: 3rem;
-    color: var(--accent-color); /* Use variable for heading color */
+    color: var(--accent-color); 
 }
 
 .hero-content p {
     font-size: 1.5rem;
     margin: 1rem 0;
-    color: var(--text-color); /* Use variable for text color */
+    color: var(--text-color); 
 }
 
 .hero-button {
     display: inline-block; 
     padding: 1rem 2rem; 
-    background-color: var(--accent-color); /* Use variable for button color */
+    background-color: var(--accent-color); 
     color: white;
     border: none;
     border-radius: 25px; 
@@ -201,19 +201,19 @@ body.dark-mode {
 /* About Section */
 .about-section {
     padding: 50px 5%;
-    background-color: var(--bg-color); /* Use variable for background color */
+    background-color: var(--bg-color); 
     text-align: center;
 }
 
 .about-section h2 {
     font-size: 2.5rem;
-    color: var(--accent-color); /* Use variable for heading color */
+    color: var(--accent-color); 
 }
 
 .about-section p {
     font-size: 1.2rem;
     margin-top: 20px;
-    color: var(--text-color); /* Use variable for text color */
+    color: var(--text-color); 
     line-height: 1.6;
 }
 
@@ -251,14 +251,14 @@ body.dark-mode {
     transform: scale(1.05);
 }
 
-.card h3 {  /* Target the project titles */
-    color: var(--text-color);  /* Use variable for project title color */
+.card h3 {  
+    color: var(--text-color);  
     margin-bottom: 20px;
 }
 
 .view-demo-button {
     text-decoration: none;
-    color: #fff; /* Keep this white for contrast */
+    color: #fff; 
     background-color: var(--accent-color);
     padding: 10px 20px;
     border-radius: 25px;
@@ -305,12 +305,12 @@ body.dark-mode {
 }
 
 .education-item h3 {
-    color: var(--text-color);  /* Use variable for heading color */
+    color: var(--text-color); 
     margin-bottom: 10px;
 }
 
 .education-item p {
-    color: var(--text-color);  /* Use variable for text color */
+    color: var(--text-color);
 }
 
 /* Skills Section */
@@ -352,7 +352,7 @@ body.dark-mode {
 }
 
 .skill h3 {
-    color: var(--text-color);  /* Use variable for heading color */
+    color: var(--text-color); 
     margin-bottom: 10px;
 }
 
@@ -364,11 +364,11 @@ body.dark-mode {
 }
 
 .progress {
-    background-color: var(--accent-color);  /* Use variable for progress bar color */
+    background-color: var(--accent-color);  
     height: 100%;
     border-radius: 25px;
     line-height: 20px;
-    color: #fff; /* White text for contrast */
+    color: #fff; 
     text-align: center;
 }
 
@@ -392,19 +392,30 @@ body.dark-mode {
     width: 50px;
     margin: 0 20px;
     transition: transform 0.3s;
-    filter: var(--icon-filter); /* Apply filter to icons */
+    filter: var(--icon-filter); 
 }
 
 :root {
-  --icon-filter: none; /* Default: no filter */
+  --icon-filter: none;
 }
 
 body.dark-mode {
-  --icon-filter: invert(1); /* Invert colors in dark mode */
+  --icon-filter: invert(1); 
 }
 
-.social-media-icons img:hover {
-    transform: scale(1.2);
+.social-media-icons a {
+    display: inline-block; 
+    width: 50px;         
+    height: 50px;       
+    margin: 0 10px;     
+}
+
+.social-media-icons svg {
+    width: 100%;         
+    height: 100%;      
+    display: block;   
+}
+
 }
 
 /* Scroll Progress */
@@ -475,8 +486,6 @@ body.dark-mode {
     opacity: 0;
     animation: fadeIn 0.5s forwards; 
 }
-
-// ... your existing JavaScript ...
 
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
