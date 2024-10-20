@@ -1,3 +1,48 @@
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyAITaYCKbTTvdu73i4y1pjazpycwtxs9PA",
+  authDomain: "portfolio-76a88.firebaseapp.com",
+  projectId: "portfolio-76a88",
+  storageBucket: "portfolio-76a88.appspot.com",
+  messagingSenderId: "134270072610",
+  appId: "1:134270072610:web:9a38f6b6b4adfcd38fd77b",
+  measurementId: "G-9E6JCQ69KP"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+// Reference to the Firestore document
+const viewCountDocRef = db.collection('viewCounts').doc('portfolioViews');
+
+async function updateViewCount() {
+  try {
+    if (!localStorage.getItem('portfolioVisited')) {
+      // Increment the view count in Firestore
+      await viewCountDocRef.update({
+        views: firebase.firestore.FieldValue.increment(1)
+      });
+
+      // Set a flag in localStorage to mark the visitor
+      localStorage.setItem('portfolioVisited', 'true');
+    }
+
+    // Fetch the updated view count and display it
+    const doc = await viewCountDocRef.get();
+    if (doc.exists) {
+      const views = doc.data().views;
+      document.getElementById('profile-views').textContent = `Profile Views: ${views}`;
+    }
+  } catch (error) {
+    console.error('Error updating view count:', error);
+  }
+}
+
+// Call the function to update the view count when the page loads
+updateViewCount();
+
+
 function updateProgressBar() {
   const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
   const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -137,45 +182,4 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
 checkTransition();
-
-function updateProgressBar() {
-  // ... (your updateProgressBar function code) ...
-}
-
-AOS.init({
-  // ... (your AOS.init options) ...
-});
-
-window.addEventListener("scroll", () => {
-  // ... (your scroll event listener code) ...
-});
-
-// ... (your other JavaScript code) ...
-
-// Firebase Initialization 
-firebase.initializeApp({
-  apiKey: "AIzaSyCmQ3twke1IpprDDAE2OgNOWRUR7-VoCAI",
-  authDomain: "bon-jour-base.firebaseapp.com",
-  projectId: "bon-jour-base",
-  storageBucket: "bon-jour-base.appspot.com",
-  messagingSenderId: "357223269073",
-  appId: "1:357223269073:web:f6cc1488822894c4917bf0",
-  measurementId: "G-0049SLDRM2"
-}); // Replace with your actual Firebase config
-
-const profileViewsRef = firebase.firestore().collection('profileViews').doc('myProfile');
-
-// Function to update the view count in Firestore and the DOM
-function updateViewCount() {
-  // ... (your updateViewCount function code) ...
-}
-
-// Call updateViewCount when the DOM is fully loaded
-window.addEventListener('DOMContentLoaded', () => {
-  // ... (your existing DOMContentLoaded code) ...
-  updateViewCount(); 
-});
-
-// ... (rest of your JavaScript code) ...
