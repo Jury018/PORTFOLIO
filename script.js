@@ -139,3 +139,33 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 checkTransition();
+
+
+// Firebase Initialization (if not already present)
+// firebase.initializeApp(firebaseConfig); // Replace firebaseConfig with your actual configuration
+
+const profileViewsRef = firebase.firestore().collection('profileViews').doc('myProfile');
+
+// Function to update the view count in Firestore and the DOM
+function updateViewCount() {
+  profileViewsRef.get().then((doc) => {
+    let views = doc.exists ? doc.data().views : 0;
+    views++;
+
+    profileViewsRef.update({ views: views })
+      .then(() => {
+        document.getElementById('profile-views').innerText = `Profile Views: ${views}`;
+      })
+      .catch((error) => {
+        console.error("Error updating document: ", error);
+      });
+  }).catch((error) => {
+    console.error("Error getting document: ", error);
+  });
+}
+
+// Call updateViewCount when the DOM is fully loaded
+window.addEventListener('DOMContentLoaded', () => {
+  // ... (your existing DOMContentLoaded code) ...
+  updateViewCount(); // Add this line to update the view count on page load
+});
