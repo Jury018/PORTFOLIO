@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- hi ako to si bon halika samahan mo ko manggago sa portfolio na to-->
     <title>Your Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
@@ -11,10 +10,12 @@
     <meta name="description" content="Portfolio of Bon Jury Pecaoco, a beginner frontend developer exploring backend development.">
     <meta name="keywords" content="Frontend Developer, Portfolio, HTML, CSS, JavaScript, Backend Development">
     <meta name="author" content="Bon Jury Pecaoco">
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore-compat.js"></script>
 </head>
 <body>
-    
-   <!-- Navigation Section -->
+
+<!-- Navigation Section -->
 <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="hamburger" id="hamburger">
         <div class="line"></div>
@@ -31,51 +32,52 @@
     </ul>
     <div id="profile-views">Profile Views: 0</div>
     
-<button id="theme-toggle" aria-label="Toggle dark/light mode">
-  <svg id="theme-toggle-svg" viewBox="0 0 24 24" width="24" height="24">
-    <path id="sun-path" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-    <path id="moon-path" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-  </svg>
-</button></nav>
-    
-    <!-- Hero Section -->
-    <section id="home" class="hero-section" tabindex="0">
+    <button id="theme-toggle" aria-label="Toggle dark/light mode">
+      <svg id="theme-toggle-svg" viewBox="0 0 24 24" width="24" height="24">
+        <path id="sun-path" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+        <path id="moon-path" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </svg>
+    </button>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero-section" tabindex="0">
   <div class="hero-content" data-aos="fade-up">
     <h1>Welcome to My Portfolio</h1>
     <p class="typewriter">I'm Bon, A Frontend developer</p>
     <a href="#projects" class="hero-button" role="button">View Projects</a>
-    <a href="https://www.canva.com/design/DAGT1o-qlb4/igd8FxJuhlCJGLIPxKp2lQ/edit?ui=eyJEIjp7IlQiOnsiQSI6IlBCNHRSbUJoMDVSTTF0WHIifX19" class="hero-button" role="button" download>View Resume</a> </div>
+    <a href="https://www.canva.com/design/DAGT1o-qlb4/igd8FxJuhlCJGLIPxKp2lQ/edit?ui=eyJEIjp7IlQiOnsiQSI6IlBCNHRSbUJoMDVSTTF0WHIifX19" class="hero-button" role="button" download>View Resume</a>
+  </div>
   <div class="hero-image-container">
     <img src="mypic1.png" alt="Hero Image" class="hero-image">
   </div>
 </section>
 
+<!-- About Section -->
+<section id="about" class="about-section" tabindex="0">
+    <h2>About Me</h2>
+    <p>Hi there! I’m Bon Jury Pecaoco, an 18-year-old college student and passionate frontend developer with a keen interest in creating visually appealing and user-friendly websites. I have a solid foundation in HTML, CSS, and JavaScript, and I'm currently expanding my skill set to include backend development. I’m excited to learn more about server-side technologies and integrate them into my future projects to enhance functionality and experience.</p>
+</section>
 
-    <!-- About Section -->
-    <section id="about" class="about-section" tabindex="0">
-        <h2>About Me</h2>
-        <i><p>Hi there! I’m Bon Jury Pecaoco, an 18-year-old college student and passionate frontend developer with a keen interest in creating visually appealing and user-friendly websites. I have a solid foundation in HTML, CSS, and JavaScript, and I'm currently expanding my skill set to include backend development. I’m excited to learn more about server-side technologies and integrate them into my future projects to enhance my functionality and experience.</p></i>
-    </section>    
-   <!-- Projects Section -->
+<!-- Projects Section -->
 <section id="projects" class="projects-section" tabindex="0">
     <h2>My Projects</h2>
     <div class="project-cards">
         <div class="card" data-aos="zoom-in">
-            <h3 class="project-title">Project 1
-          (work in progress)</h3>
+            <h3 class="project-title">Project 1 (work in progress)</h3>
             <a href="https://jury018.github.io/BON-JOUR-RESTO-/" target="_blank" rel="noopener noreferrer" class="view-demo-button">View Demo</a>
         </div>
         <div class="card" data-aos="zoom-in">
             <h3 class="project-title">Project 2</h3>
             <a href="https://jury018.github.io/Sunrise-ft.-billie-eilish-/" target="_blank" rel="noopener noreferrer" class="view-demo-button">View Demo</a>
         </div>
-         <div class="card" data-aos="zoom-in">
+        <div class="card" data-aos="zoom-in">
             <h3 class="project-title">Project 3</h3>
-            <a href=https://jury018.github.io/STORY-OF-MY-LIFE-ALBUM/
-            target="_blank" rel="noopener noreferrer" class="view-demo-button">View Demo</a>
+            <a href="https://jury018.github.io/STORY-OF-MY-LIFE-ALBUM/" target="_blank" rel="noopener noreferrer" class="view-demo-button">View Demo</a>
         </div>
     </div>
 </section>
+
 <!-- Education Section -->
 <section id="education" class="education-section" tabindex="0">
     <h2 data-aos="fade-up">Education</h2>
@@ -94,68 +96,69 @@
         </div>
     </div>
 </section>
-    <!-- Skills Section -->
-    <section id="skills" class="skills-section" tabindex="0">
-        <h2>My Skills & Experience</h2>
-        <div class="skills-container">
-            <div class="skill" data-aos="fade-left">
-                <img src="html-5.png" alt="HTML Logo">
-                <div class="skill-info">
-                    <h3>HTML</h3>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 95%;">95%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="skill" data-aos="fade-left">
-                <img src="css-3.png" alt="CSS Logo">
-                <div class="skill-info">
-                    <h3>CSS</h3>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 90%;">90%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="skill" data-aos="fade-left">
-                <img src="java-script.png" alt="JavaScript Logo">
-                <div class="skill-info">
-                    <h3>JavaScript</h3>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 70%;">70%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="skill" data-aos="fade-left">
-                <img src="python.png" alt="Python Logo">
-                <div class="skill-info">
-                    <h3>Python</h3>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 50%;">50%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="skill" data-aos="fade-left">
-                <img src="java.png" alt="Java Logo">
-                <div class="skill-info">
-                    <h3>Java</h3>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 43%;">43%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="skill" data-aos="fade-left">
-                <img src="other.png" alt="Placeholder Logo">
-                <div class="skill-info">
-                    <h3>Other Programming Languages</h3>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 5%;">5%</div>
-                    </div>
+
+<!-- Skills Section -->
+<section id="skills" class="skills-section" tabindex="0">
+    <h2>My Skills & Experience</h2>
+    <div class="skills-container">
+        <div class="skill" data-aos="fade-left">
+            <img src="html-5.png" alt="HTML Logo">
+            <div class="skill-info">
+                <h3>HTML</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 95%;">95%</div>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="skill" data-aos="fade-left">
+            <img src="css-3.png" alt="CSS Logo">
+            <div class="skill-info">
+                <h3>CSS</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 90%;">90%</div>
+                </div>
+            </div>
+        </div>
+        <div class="skill" data-aos="fade-left">
+            <img src="java-script.png" alt="JavaScript Logo">
+            <div class="skill-info">
+                <h3>JavaScript</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 70%;">70%</div>
+                </div>
+            </div>
+        </div>
+        <div class="skill" data-aos="fade-left">
+            <img src="python.png" alt="Python Logo">
+            <div class="skill-info">
+                <h3>Python</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 50%;">50%</div>
+                </div>
+            </div>
+        </div>
+        <div class="skill" data-aos="fade-left">
+            <img src="java.png" alt="Java Logo">
+            <div class="skill-info">
+                <h3>Java</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 43%;">43%</div>
+                </div>
+            </div>
+        </div>
+        <div class="skill" data-aos="fade-left">
+            <img src="other.png" alt="Placeholder Logo">
+            <div class="skill-info">
+                <h3>Other Programming Languages</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 16%;">16%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <!-- Social Media Section -->
+ <!-- Social Media Section -->
 <section id="connect" class="#social-media section">
     <h2>Connect with Me</h2>
     <div class="social-media-icons">
@@ -173,13 +176,9 @@
         </a>
     </div>
 </section>
-   <!-- May js script kasi tinamad na ako mag lipat pa-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script src="script.js"></script> 
-    <script>
-        AOS.init();
-    </script>
-     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
