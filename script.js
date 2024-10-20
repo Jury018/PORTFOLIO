@@ -140,32 +140,42 @@ window.addEventListener('DOMContentLoaded', () => {
 
 checkTransition();
 
+function updateProgressBar() {
+  // ... (your updateProgressBar function code) ...
+}
 
-// Firebase Initialization (if not already present)
-// firebase.initializeApp(firebaseConfig); // Replace firebaseConfig with your actual configuration
+AOS.init({
+  // ... (your AOS.init options) ...
+});
+
+window.addEventListener("scroll", () => {
+  // ... (your scroll event listener code) ...
+});
+
+// ... (your other JavaScript code) ...
+
+// Firebase Initialization 
+firebase.initializeApp({
+  apiKey: "AIzaSyCmQ3twke1IpprDDAE2OgNOWRUR7-VoCAI",
+  authDomain: "bon-jour-base.firebaseapp.com",
+  projectId: "bon-jour-base",
+  storageBucket: "bon-jour-base.appspot.com",
+  messagingSenderId: "357223269073",
+  appId: "1:357223269073:web:f6cc1488822894c4917bf0",
+  measurementId: "G-0049SLDRM2"
+}); // Replace with your actual Firebase config
 
 const profileViewsRef = firebase.firestore().collection('profileViews').doc('myProfile');
 
 // Function to update the view count in Firestore and the DOM
 function updateViewCount() {
-  profileViewsRef.get().then((doc) => {
-    let views = doc.exists ? doc.data().views : 0;
-    views++;
-
-    profileViewsRef.update({ views: views })
-      .then(() => {
-        document.getElementById('profile-views').innerText = `Profile Views: ${views}`;
-      })
-      .catch((error) => {
-        console.error("Error updating document: ", error);
-      });
-  }).catch((error) => {
-    console.error("Error getting document: ", error);
-  });
+  // ... (your updateViewCount function code) ...
 }
 
 // Call updateViewCount when the DOM is fully loaded
 window.addEventListener('DOMContentLoaded', () => {
   // ... (your existing DOMContentLoaded code) ...
-  updateViewCount(); // Add this line to update the view count on page load
+  updateViewCount(); 
 });
+
+// ... (rest of your JavaScript code) ...
