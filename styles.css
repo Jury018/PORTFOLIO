@@ -14,7 +14,23 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
 
+@media (min-width: 1400px) {
+  .hero-content {
+    max-width: 40%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .project-cards, .education-container, .skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+}
 /* Dark Mode Variables */
 :root {
   --bg-color: #111;
@@ -38,17 +54,18 @@ body.dark-mode {
 
 /* Navbar */
 .navbar {
-  position: fixed;
+  position: sticky;
   width: 100%;
   top: 0;
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem 1rem;
-  background: var(--nav-bg);
+  background: rgba(0,0,0,0.7);
   z-index: 10;
-  transition: background 0.3s ease;
-  backdrop-filter: blur(5px);
+  transition: background 0.3s ease-in-out;
+  backdrop-filter: blur(10px);
   /* Add a subtle blur effect */
 }
 
@@ -113,6 +130,20 @@ body.dark-mode {
   justify-content: space-between;
   padding: 0 5%;
   background: var(--hero-gradient);
+  background-attachment: fixed;
+}
+.hero-section {
+  background: linear-gradient(135deg, #141414, #1e1e1e);
+  animation: gradientAnimation 5s infinite alternate;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background: linear-gradient(135deg, #141414, #1e1e1e);
+  }
+  100% {
+    background: linear-gradient(135deg, #1e1e1e, #141414);
+  }
 }
 
 .hero-content {
@@ -143,7 +174,10 @@ body.dark-mode {
   margin-top: 1rem;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
-
+.hero-button, .view-demo-button {
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+}
 .hero-button:hover {
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
 }
@@ -212,10 +246,10 @@ body.dark-mode {
   /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em;
   /* Adjust as needed */
-  animation: typing 3.5s steps(40, end),
+  animation: typing 2.5s steps(40, end),
     /* Adjust the speed and steps as you like */
     blink-caret .75s step-end infinite;
-  /* The blinking cursor */
+
 }
 
 /* The typing effect */
@@ -241,7 +275,6 @@ body.dark-mode {
   }
 }
 
-/* ... other styles ... */
 
 /* Theme Toggle Button */
 #theme-toggle {
@@ -256,6 +289,9 @@ body.dark-mode {
   transition: fill 0.3s ease;
 }
 
+#theme-toggle:hover {
+  transform: rotate(30deg) scale(1.1);
+}
 #theme-toggle-svg #moon-path {
   display: none;
 }
@@ -310,19 +346,17 @@ body.dark-mode #theme-toggle-svg #moon-path {
 }
 
 .card {
-  background-color: var(--card-bg);
+  background: #1e1e1e;
   border-radius: 10px;
-  width: 300px;
   padding: 20px;
-  margin: 20px;
-  transition: transform 0.3s;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
 }
-
 .card h3 {
   color: var(--text-color);
   margin-bottom: 20px;
@@ -383,6 +417,20 @@ body.dark-mode #theme-toggle-svg #moon-path {
 
 .education-item p {
   color: var(--text-color);
+}
+
+.card, .education-item, .skill, .hero-button, .view-demo-button {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover, .education-item:hover, .skill:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.view-demo-button:hover {
+  transform: translateY(-5px) scale(1.1);
+  background-color: var(--accent-color);
 }
 
 /* Skills Section */
@@ -516,6 +564,29 @@ body.dark-mode {
   transition: opacity 0.5s ease-in-out;
 }
 
+:root {
+  --transition-duration: 0.3s;
+  --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card, .education-item, .skill {
+  transition: transform var(--transition-duration);
+  box-shadow: var(--box-shadow);
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 /* The transition to text elements within sections */
 #about h2,
 #about p,
@@ -604,4 +675,88 @@ body.dark-mode {
     margin: 10px 0;
   }
 }
+[id^="section"] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+}
 
+[id^="section"].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.loading-placeholder {
+  width: 300px;
+  height: 300px;
+  background: #333;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e63b3b;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('OpenSans.woff2') format('woff2');
+  font-display: swap;
+}
+
+.btn {
+  background: linear-gradient(135deg, #e63b3b, #ff7575);
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease-in-out, transform 0.2s;
+}
+/*button section*/
+.btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff7575, #e63b3b);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: #141414;
+}
+
+.footer-links a {
+  color: #fff;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #e63b3b;
+}
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; /* Adjust duration as needed */
+}
