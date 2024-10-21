@@ -42,7 +42,6 @@ async function updateViewCount() {
 // Call the function to update the view count when the page loads
 updateViewCount();
 
-
 function updateProgressBar() {
   const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
   const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -148,17 +147,18 @@ function checkTransition() {
           const windowHeight = window.innerHeight;
           const isInViewport = sectionTop < windowHeight && sectionTop > 0;
 
+          const textElements = section.querySelectorAll('h2, p, h3, a');
           if (isInViewport) {
-            const textElements = section.querySelectorAll('h2, p, h3, a');
+            // Remove fade-out class when in viewport
             textElements.forEach(element => {
+              element.classList.remove('fade-out');
               element.style.opacity = 1;
               element.style.transform = 'translateY(0)';
             });
           } else {
-            const textElements = section.querySelectorAll('h2, p, h3, a');
+            // Add fade-out class when out of viewport
             textElements.forEach(element => {
-              element.style.opacity = 0;
-              element.style.transform = 'translateY(20px)';
+              element.classList.add('fade-out');
             });
           }
         });
@@ -174,12 +174,19 @@ window.addEventListener('beforeunload', () => {
   window.scrollTo(0, 0);
 });
 
-// Ensure the page starts at the top on load
+// Ensure the page starts at the top or at the home section on load
 window.addEventListener('DOMContentLoaded', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth' 
-  });
+  const homeSection = document.querySelector('#home'); 
+  if (homeSection) {
+    homeSection.scrollIntoView({
+      behavior: 'smooth'
+    });
+  } else {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
 });
 
 checkTransition();
