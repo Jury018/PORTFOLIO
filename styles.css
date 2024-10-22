@@ -132,10 +132,6 @@ body.dark-mode {
   background: var(--hero-gradient);
   background-attachment: fixed;
 }
-.hero-section {
-  background: linear-gradient(135deg, #141414, #1e1e1e);
-  animation: gradientAnimation 5s infinite alternate;
-}
 
 @keyframes gradientAnimation {
   0% {
@@ -330,7 +326,7 @@ body.dark-mode #theme-toggle-svg #moon-path {
 /* Projects Section */
 .projects-section {
   padding: 50px 5%;
-  background-color: var(--card-bg);
+  background-color: var(--card-bg); /* Use your background color variable */
   text-align: center;
 }
 
@@ -340,18 +336,26 @@ body.dark-mode #theme-toggle-svg #moon-path {
 }
 
 .project-cards {
-  display: flex;  justify-content: space-around;
+  display: flex;
+  justify-content: center; /* Center the cards */
   margin-top: 30px;
   flex-wrap: wrap;
+  gap: 20px; /* Add some space between cards */
 }
 
 .card {
-  background: #1e1e1e;
+  background-color: var(--bg-color);
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s, box-shadow 0.3s;
+  flex: 1 0 300px; /* Adjust flex-basis for wider cards */
+  max-width: 400px; /* Limit the maximum width */
+  margin: 10px; 
 }
+
+
+/* ... (rest of your card styles) ... */
 
 .card:hover {
   transform: translateY(-10px);
