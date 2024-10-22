@@ -12,11 +12,10 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-body {
-  transition: background-color 0.5s ease, color 0.5s ease;
-}
+/* Removed the duplicate 'body' block */ 
 
 @media (min-width: 1400px) {
   .hero-content {
@@ -25,12 +24,15 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .project-cards, .education-container, .skills-container {
+  .project-cards, 
+  .education-container, 
+  .skills-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
   }
 }
+
 /* Dark Mode Variables */
 :root {
   --bg-color: #111;
@@ -322,25 +324,29 @@ body.dark-mode #theme-toggle-svg #moon-path {
   line-height: 1.6;
 }
 
-
 /* Projects Section */
 .projects-section {
   padding: 50px 5%;
-  background-color: var(--card-bg); /* Use your background color variable */
+  background-color: var(--card-bg);
   text-align: center;
+  overflow: hidden; /* Hide scrollbar for the project section */
 }
 
 .projects-section h2 {
   font-size: 2.5rem;
   color: var(--accent-color);
+  margin-bottom: 20px; /* Add spacing below the heading */
 }
 
-.project-cards {
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-track {
   display: flex;
-  justify-content: center; /* Center the cards */
-  margin-top: 30px;
-  flex-wrap: wrap;
-  gap: 20px; /* Add some space between cards */
+  transition: transform 0.5s ease-in-out; /* Smooth transitions */
 }
 
 .card {
@@ -348,24 +354,14 @@ body.dark-mode #theme-toggle-svg #moon-path {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
-  flex: 1 0 300px; /* Adjust flex-basis for wider cards */
-  max-width: 400px; /* Limit the maximum width */
-  margin: 10px; 
+  flex: 0 0 100%; /* Each card takes full width */
+  display: flex;
+  flex-direction: column; /* Align content vertically */
+  align-items: center;
+  text-align: center; /* Center text within cards */
 }
 
-
-/* ... (rest of your card styles) ... */
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-}
-.card h3 {
-  color: var(--text-color);
-  margin-bottom: 20px;
-}
-
+/* Red button styles */
 .view-demo-button {
   text-decoration: none;
   color: #fff;
@@ -377,9 +373,61 @@ body.dark-mode #theme-toggle-svg #moon-path {
 }
 
 .view-demo-button:hover {
-  background-color: #e63b3b;
+  background-color: darken(var(--accent-color), 10%); /* Darken on hover */
   transform: translateY(-5px);
 }
+
+.slider-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%); /* Center vertically */
+  z-index: 10; /* Ensure controls are on top */
+}
+
+.prev-button, 
+.next-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.slider-pagination {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.pagination-dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-dot.active {
+  background-color: var(--accent-color);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 100%; /* Each card takes full width on smaller screens */
+  }
+}
+
+
 
 /* Education Section */
 .education-section {
