@@ -245,7 +245,6 @@ function handleSwipe() {
   }
 }
 
-
 // Click event listeners for pagination dots
 paginationDots.forEach((dot, index) => {
   dot.addEventListener('click', () => {
@@ -257,10 +256,8 @@ paginationDots.forEach((dot, index) => {
 // Initial slider position
 updateSliderPosition();
 
-// ... (your existing JavaScript code) ...
-
-
-// ... (rest of your JavaScript code) ...
-
-
+// *** Prevent default touchmove behavior to stop horizontal scrolling ***
+sliderTrack.addEventListener('touchmove', function(event) {
+  event.preventDefault(); 
+}, { passive: false }); 
 
