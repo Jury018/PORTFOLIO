@@ -42,6 +42,8 @@ body {
   --nav-bg: rgba(0, 0, 0, 0.7);
   --nav-bg-hover: rgba(0, 0, 0, 0.9);
   --hero-gradient: linear-gradient(45deg, #141414, #222);
+  --transition-duration: 0.3s;
+  --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 body.dark-mode {
@@ -52,6 +54,7 @@ body.dark-mode {
   --nav-bg: rgba(255, 255, 255, 0.9);
   --nav-bg-hover: rgba(255, 255, 255, 1);
   --hero-gradient: linear-gradient(45deg, #f8f9fa, #dee2e6);
+  --icon-filter: invert(1); /* Added icon filter for dark mode */
 }
 
 /* Navbar */
@@ -159,9 +162,10 @@ body.dark-mode {
   color: var(--text-color);
 }
 
-.hero-button {
+.hero-button, .view-demo-button {
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem; /* Adjusted padding */
+  font-size: 1rem;    /* Added font size */
   background-color: var(--accent-color);
   color: white;
   border: none;
@@ -172,10 +176,7 @@ body.dark-mode {
   margin-top: 1rem;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
-.hero-button, .view-demo-button {
-  padding: 1rem 1.5rem;
-  font-size: 1rem;
-}
+
 .hero-button:hover {
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
 }
@@ -265,7 +266,7 @@ body.dark-mode {
 @keyframes blink-caret {
   from,
   to {
-    border-color: transparent
+    border-   color: transparent
   }
 
   50% {
@@ -359,6 +360,7 @@ body.dark-mode #theme-toggle-svg #moon-path {
   flex-direction: column; /* Align content vertically */
   align-items: center;
   text-align: center; /* Center text within cards */
+  transition: transform var(--transition-duration); /* Added transition */
 }
 
 /* Red button styles */
@@ -427,8 +429,6 @@ body.dark-mode #theme-toggle-svg #moon-path {
   }
 }
 
-
-
 /* Education Section */
 .education-section {
   padding: 50px 5%;
@@ -454,12 +454,8 @@ body.dark-mode #theme-toggle-svg #moon-path {
   width: 250px;
   padding: 20px;
   margin: 20px;
-  transition: transform 0.3s;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-}
-
-.education-item:hover {
-  transform: scale(1.05);
+  transition: transform var(--transition-duration); /* Added transition */
 }
 
 .education-item h3 {
@@ -471,14 +467,7 @@ body.dark-mode #theme-toggle-svg #moon-path {
   color: var(--text-color);
 }
 
-.card, .education-item, .skill, .hero-button, .view-demo-button {
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.card:hover, .education-item:hover, .skill:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
-}
+/* ... (Removed redundant hover effects) ... */
 
 .view-demo-button:hover {
   transform: translateY(-5px) scale(1.1);
@@ -510,17 +499,13 @@ body.dark-mode #theme-toggle-svg #moon-path {
   width: 200px;
   padding: 20px;
   margin: 20px;
-  transition: transform 0.3s;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform var(--transition-duration); /* Added transition */
 }
 
 .skill img {
   max-width: 100px;
   margin-bottom: 10px;
-}
-
-.skill:hover {
-  transform: scale(1.05);
 }
 
 .skill h3 {
@@ -558,36 +543,23 @@ body.dark-mode #theme-toggle-svg #moon-path {
 
 .social-media-icons {
   margin-top: 20px;
+  display: flex; /* Added flex display */
+  justify-content: center; /* Center icons */
+  gap: 2rem; /* Add space between icons */
 }
 
-.social-media-icons img {
-  width: 50px;
-  margin: 0 20px;
-  transition: transform 0.3s;
-  filter: var(--icon-filter);
+.social-media-icons
+a {
+  color: inherit;  /* Inherit color for theme compatibility */
+  font-size: 2rem; /* Adjust icon size as needed */
+  transition: transform 0.2s ease; /* Smooth hover transition */
 }
 
-:root {
-  --icon-filter: none;
+.social-media-icons a:hover {
+  transform: scale(1.2); /* Slightly scale up on hover */
 }
 
-body.dark-mode {
-  --icon-filter: invert(1);
-}
-
-.social-media-icons a {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  margin: 0 10px;
-}
-
-.social-media-icons svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
+/* ... (Removed redundant social media icon styles) ... */
 
 /* Scroll Progress */
 .scroll-progress {
@@ -600,12 +572,7 @@ body.dark-mode {
   z-index: 999;
 }
 
-
-/* Project Button */
-.view-demo-button {
-  display: inline-block;
-  margin: 10px 0;
-}
+/* ... (Removed redundant .view-demo-button styles) ... */
 
 /* The transition to the elements */
 #about,
@@ -616,15 +583,7 @@ body.dark-mode {
   transition: opacity 0.5s ease-in-out;
 }
 
-:root {
-  --transition-duration: 0.3s;
-  --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-}
-
-.card, .education-item, .skill {
-  transition: transform var(--transition-duration);
-  box-shadow: var(--box-shadow);
-}
+/* ... (Removed redundant transition and box-shadow styles) ... */
 
 .fade-in {
   opacity: 0;
@@ -812,3 +771,4 @@ body.dark-mode {
   opacity: 0;
   transition: opacity 0.5s ease-in-out; /* Adjust duration as needed */
 }
+
