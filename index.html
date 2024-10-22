@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Portfolio</title>
+  <link rel="icon" href="favicon.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
   <meta name="description" content="Portfolio of Bon Jury Pecaoco, a beginner frontend developer exploring backend development.">
@@ -11,37 +12,18 @@
   <meta name="author" content="Bon Jury Pecaoco">
   <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore-compat.js"></script>
-  <style>
-    /* ... (your existing CSS) ... */
-
-    .social-media-icons {
-      display: flex;
-      justify-content: center; /* Center the icons horizontally */
-      gap: 2rem; /* Add space between icons */
-      margin-top: 20px;
-    }
-
-    .social-media-icons a {
-      color: inherit; /* Inherit color from parent (for theme compatibility) */
-      font-size: 2rem; /* Adjust icon size as needed */
-      transition: transform 0.2s ease; /* Add a smooth hover transition */
-    }
-
-    .social-media-icons a:hover {
-      transform: scale(1.2); /* Slightly scale up on hover */
-    }
-
-    /* ... (rest of your CSS) ... */
-  </style>
 </head>
 <body>
 
   <nav class="navbar" role="navigation" aria-label="Main Navigation">
     <div class="hamburger" id="hamburger">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
+  <i class="fa-solid fa-bars fa-beat-fade"></i>
+  <span class="sr-only">Menu</span>
+  <div class="line"></div>
+  <div class="line"></div>
+  <div class="line"></div>
+</div>
+
     <ul class="navbar-links" id="navbar-links">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
@@ -53,11 +35,9 @@
     <div id="profile-views">Profile Views: 0</div>
 
     <button id="theme-toggle" aria-label="Toggle dark/light mode">
-      <svg id="theme-toggle-svg" viewBox="0 0 24 24" width="24" height="24">
-        <path id="sun-path" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 2a8 8 0 1 1 0 16 8 8 0 0 1 0-16zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-        <path id="moon-path" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-      </svg>
-    </button>
+<i class="fa-solid fa-earth-americas fa-bounce fa-lg" style="color: #ffff00;"></i>
+</button>
+
   </nav>
 
   <section id="home" class="hero-section" tabindex="0">
@@ -81,7 +61,7 @@
   <section id="projects" class="projects-section" tabindex="0">
     <h2>My Projects</h2>
     <div class="slider-container">
-      <div class="slider-track">
+      <div class="slider-track">        
         <div class="card">
           <h3 class="project-title">Project 1 (work in progress)</h3>
           <a href="https://jury018.github.io/BON-JOUR-RESTO-/" target="_blank" rel="noopener noreferrer" class="view-demo-button">View Demo</a>
@@ -209,7 +189,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
   <script>
     AOS.init();
-  </script>
+  </script>  
   <script src="script.js"></script>
 </body>
 </html>
