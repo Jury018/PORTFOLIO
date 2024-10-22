@@ -190,3 +190,77 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 checkTransition();
+
+const sliderTrack = document.querySelector('.slider-track');
+const paginationDots = document.querySelectorAll('.pagination-dot');
+let currentSlide = 0;
+
+function nextSlide() {
+  currentSlide++;
+  if (currentSlide >= sliderTrack.children.length) {
+    currentSlide = 0; // Wrap around to the first slide
+  }
+  updateSliderPosition();
+}
+
+function prevSlide() {
+  currentSlide--;
+  if (currentSlide < 0) {
+    currentSlide = sliderTrack.children.length - 1; // Wrap around to the last slide
+  }
+  updateSliderPosition();
+}
+
+function updateSliderPosition() {
+  const slideWidth = sliderTrack.offsetWidth;
+  const translateX = -slideWidth * currentSlide;
+  sliderTrack.style.transform = `translateX(${translateX}px)`;
+
+  // Update active pagination dot
+  paginationDots.forEach((dot, index) => {
+    dot.classList.toggle('active', index === currentSlide); // Simplified toggle
+  });
+}
+
+// Touch event listeners for swipe functionality
+let touchStartX = 0;
+let touchEndX = 0;
+
+sliderTrack.addEventListener('touchstart', (e) => {
+  touchStartX = e.touches[0].clientX;
+});
+
+sliderTrack.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].clientX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const swipeThreshold = 50; // Adjust this value for desired sensitivity
+
+  if (touchEndX < touchStartX - swipeThreshold) {
+    nextSlide();
+  } else if (touchEndX > touchStartX + swipeThreshold) {
+    prevSlide();
+  }
+}
+
+
+// Click event listeners for pagination dots
+paginationDots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    currentSlide = index;
+    updateSliderPosition();
+  });
+});
+
+// Initial slider position
+updateSliderPosition();
+
+// ... (your existing JavaScript code) ...
+
+
+// ... (rest of your JavaScript code) ...
+
+
+
