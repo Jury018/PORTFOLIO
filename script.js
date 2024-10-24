@@ -28,13 +28,12 @@ async function updateViewCount() {
       localStorage.setItem('portfolioVisited', 'true');
     }
 
-    // Fetch the initial view count and display it
+    // Fetch the updated view count and display it
     const doc = await viewCountDocRef.get();
     if (doc.exists) {
       const views = doc.data().views;
       document.getElementById('profile-views').textContent = `Profile Views: ${views}`;
     }
-
   } catch (error) {
     console.error('Error updating view count:', error);
   }
@@ -43,29 +42,16 @@ async function updateViewCount() {
 // Call the function to update the view count when the page loads
 updateViewCount();
 
-// Real-time updates
-viewCountDocRef.onSnapshot(
-  doc => {
-    if (doc.exists) {
-      const views = doc.data().views;
-      const profileViewsElement = document.getElementById('profile-views');
-      profileViewsElement.textContent = `Profile Views: ${views}`;
+function updateProgressBar() {
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrollPercent = (scrollTop / scrollHeight) * 100;
 
-      // Add the 'updated' class for animation
-      profileViewsElement.classList.add('updated');
-
-      // Remove the class after the animation completes
-      setTimeout(() => {
-        profileViewsElement.classList.remove('updated');
-      }, 300); // Match the animation duration
-    }
-  },
-  error => {
-    console.error('Error getting view count:', error);
-    // Optionally, display an error message to the user
+  const scrollProgressElement = document.querySelector(".scroll-progress");
+  if (scrollProgressElement) {
+    scrollProgressElement.style.width = scrollPercent + "%";
   }
-);
-
+}
 
 AOS.init({
   duration: 1000,
