@@ -573,9 +573,7 @@ a {
   z-index: 999;
 }
 
-/* ... (Removed redundant .view-demo-button styles) ... */
 
-/* The transition to the elements */
 #about,
 #projects,
 #education,
@@ -584,7 +582,6 @@ a {
   transition: opacity 0.5s ease-in-out;
 }
 
-/* ... (Removed redundant transition and box-shadow styles) ... */
 
 .fade-in {
   opacity: 0;
@@ -773,3 +770,18 @@ a {
   transition: opacity 0.5s ease-in-out; /* Adjust duration as needed */
 }
 
+/* PROFILE VIEWS*/
+
+#profile-views {
+  transition: transform 0.2s ease; /* Add a transition */
+}
+
+#profile-views.updated {
+  animation: bump 0.3s ease; /* Apply the animation */
+}
+
+@keyframes bump {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
