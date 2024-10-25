@@ -11,17 +11,17 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
 
-// Reference to the Firestore document
-const viewCountDocRef = db.collection('viewCounts').doc('portfolioViews');
+// Get a reference to the Realtime Database
+const database = firebase.database(); 
+const viewCountRef = database.ref('portfolioViews'); 
 
 async function updateViewCount() {
   try {
     if (!localStorage.getItem('portfolioVisited')) {
-      // Increment the view count in Firestore
-      await viewCountDocRef.update({
-        views: firebase.firestore.FieldValue.increment(1)
+      // Increment the view count in the Realtime Database
+      await viewCountRef.transaction(function(currentViews) {
+        return (currentViews || 0) + 1; 
       });
 
       // Set a flag in localStorage to mark the visitor
@@ -29,18 +29,18 @@ async function updateViewCount() {
     }
 
     // Fetch the updated view count and display it
-    const doc = await viewCountDocRef.get();
-    if (doc.exists) {
-      const views = doc.data().views;
+    viewCountRef.on('value', (snapshot) => {
+      const views = snapshot.val();
       document.getElementById('profile-views').textContent = `Profile Views: ${views}`;
-    }
+    });
+
   } catch (error) {
     console.error('Error updating view count:', error);
   }
 }
 
 // Call the function to update the view count when the page loads
-updateViewCount();
+updateViewCount(); 
 
 function updateProgressBar() {
   const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -259,5 +259,4 @@ updateSliderPosition();
 // *** Prevent default touchmove behavior to stop horizontal scrolling ***
 sliderTrack.addEventListener('touchmove', function(event) {
   event.preventDefault(); 
-}, { passive: false }); 
-
+},
