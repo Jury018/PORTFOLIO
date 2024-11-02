@@ -14,8 +14,7 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
-
-/* Removed the duplicate 'body' block */ 
+ 
 
 @media (min-width: 1400px) {
   .hero-content {
@@ -785,3 +784,46 @@ a {
   50% { transform: scale(1.1); }
   100% { transform: scale(1); }
 }
+
+
+
+.motivation-button-section {
+  padding: 50px 5%;
+  background-color: var(--bg-color);
+  text-align: center; /* Center the button within the section */
+}
+
+.view-motivation-button {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  background-color: var(--accent-color); /* Use your accent color */
+  color: white;
+  border: none;
+  border-radius: 25px; /* Match border-radius of other buttons */
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 1rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+
+.view-motivation-button:hover {
+  background-color: #ffdfaa, 10%); /* Darken on hover */
+  transform: translateY(-5px); /* Slightly move up on hover */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+#motivation .motivation-container {
+  text-align: center; /* Center the text */
+  max-width: 800px; /* Limit the width for better readability */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 20px; 
+}
+
+#motivation p {
+  line-height: 1.6; /* Adjust line spacing for better readability */
+  font-size: 1.1em; /* Slightly increase font size */
+}
+
+
