@@ -261,3 +261,16 @@ sliderTrack.addEventListener('touchmove', function(event) {
   event.preventDefault(); 
 }, { passive: false }); 
 
+  // JavaScript to show/hide the motivation section
+    const motivationButton = document.querySelector('.view-motivation-button');
+    const motivationSection = document.getElementById('motivation');
+
+    motivationButton.addEventListener('click', () => {
+      if (motivationSection.style.display === 'none') {
+        motivationSection.style.display = 'block'; // Show the section
+        motivationButton.textContent = 'Hide Motivation'; // Change button text
+      } else {
+        motivationSection.style.display = 'none'; // Hide the section
+        motivationButton.textContent = 'View Motivation'; // Change button text
+      }
+    });
