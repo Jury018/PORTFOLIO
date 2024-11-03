@@ -826,4 +826,63 @@ a {
   font-size: 1.1em; /* Slightly increase font size */
 }
 
+.certifications-section {
+  padding: 50px 5%;
+  background-color: var(--bg-color);
+  text-align: center;
+}
 
+.certifications-section h2 {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  margin-bottom: 20px; /* Add spacing below the heading */
+}
+
+.certifications-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px; /* Adds space between certifications */
+  margin-top: 30px;
+}
+
+.certification {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px; 
+  box-shadow: var(--box-shadow); /* Use your box-shadow variable for consistency */
+  transition: transform var(--transition-duration);
+  overflow: hidden; /* Hide image overflow for cleaner look */
+}
+
+.certification img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  display: block; /* Prevents image from affecting alignment */
+  transition: transform 0.3s ease; /* Add a transition for hover effect */
+}
+
+.certification img:hover {
+  transform: scale(1.1); /* Slightly scale up image on hover */
+}
+
+.certification h3 {
+  color: var(--text-color);
+  margin-bottom: 10px;
+  font-size: 1.2em; /* Slightly increase heading size */
+}
+
+.certification p {
+  color: var(--text-color);
+  line-height: 1.5; /* Improve readability with line spacing */
+}
+
+/* Responsive adjustments for certifications */
+@media (max-width: 768px) {
+  .certification {
+    width: 90%; 
+    margin: 10px auto; 
+  }
+}
