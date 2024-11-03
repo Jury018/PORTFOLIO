@@ -871,15 +871,14 @@ a {
 .certification h3 {
   color: var(--text-color);
   margin-bottom: 10px;
-  font-size: 1.2em; /* Slightly increase heading size */
+  font-size: 1.2em; 
 }
 
 .certification p {
   color: var(--text-color);
-  line-height: 1.5; /* Improve readability with line spacing */
+  line-height: 1.5; 
 }
 
-/* Responsive adjustments for certifications */
 @media (max-width: 768px) {
   .certification {
     width: 90%; 
