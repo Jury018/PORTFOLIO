@@ -39,6 +39,7 @@ async function updateViewCount() {
   }
 }
 
+
 // Call the function to update the view count when the page loads
 updateViewCount();
 
