@@ -262,16 +262,33 @@ sliderTrack.addEventListener('touchmove', function(event) {
   event.preventDefault(); 
 }, { passive: false }); 
 
-  // JavaScript to show/hide the motivation section
-    const motivationButton = document.querySelector('.view-motivation-button');
-    const motivationSection = document.getElementById('motivation');
+document.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', async (event) => {
+    event.preventDefault();
 
-    motivationButton.addEventListener('click', () => {
-      if (motivationSection.style.display === 'none') {
-        motivationSection.style.display = 'block'; // Show the section
-        motivationButton.textContent = 'Hide Motivation'; // Change button text
+    const href = link.href;
+
+    try {
+      const response = await fetch(href);
+
+      if (!response.ok) {
+        // Handle 404 or other errors
+        display404Page();
       } else {
-        motivationSection.style.display = 'none'; // Hide the section
-        motivationButton.textContent = 'View Motivation'; // Change button text
+        // Link is valid, proceed with the default behavior
+        window.location.href = href;
       }
-    });
+    } catch (error) {
+      // Handle network errors or other exceptions
+      display404Page();
+    }
+  });
+});
+
+async function display404Page() {
+  const response = await fetch('404.html');
+  const htmlContent = await response.text();
+
+  document.body.innerHTML = htmlContent;
+}
+
