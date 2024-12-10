@@ -12,16 +12,17 @@ body {
   justify-content: center;
   min-height: 100vh;
   text-align: center;
-  /* Force the background color to apply regardless of system preference */
-  background-color: #f0f0f0 !important;
 }
 
-h1 {
-  font-size: 90px;    
+/* Default styles for light mode */
+body {
+  background-color: #f0f0f0;
 }
 
-img {
-  width: 500px;
+h1,
+.text p,
+.text button {
+  color: #333; /* Dark color for light background */
 }
 
 .text {
@@ -47,4 +48,17 @@ button {
   color: #fff;
   border: none;
   font-weight: 600;
+}
+
+/* Styles for dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #222;
+  }
+
+  h1,
+  .text p,
+  .text button {
+    color: #fff; /* Light color for dark background */
+  }
 }
