@@ -17,5 +17,13 @@
             <button onclick="location.href='index.html'">Go To Home</button>
         </div>
     </div>
+
+    <script>
+        // Check the user's preferred color scheme
+        const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Add a data-theme attribute to the body to target it in CSS
+        document.body.dataset.theme = prefersDarkMode ? 'dark' : 'light';
+    </script>
 </body>
 </html>
