@@ -5,26 +5,34 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   text-align: center;
+  /* Force the background color to apply regardless of system preference */
+  background-color: #f0f0f0 !important;
 }
+
 h1 {
-  font-size: 90px;
+  font-size: 90px;    
 }
+
 img {
   width: 500px;
 }
+
 .text {
   font-family: "Poppins", sans-serif;
 }
+
 .text h2 {
   font-weight: 600;
   font-size: 30px;
 }
+
 .text p {
   font-size: 10px;
   font-weight: 300;
