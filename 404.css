@@ -81,5 +81,5 @@ body {
 }
 
 .gif-container {
-  max-width: 100%; /* Ensure the GIF doesn't exceed the container width */
+  max-width: 100%;
 }
