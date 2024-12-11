@@ -12,23 +12,141 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden
 }
  
+/* Screen Responsiveness */
 
-@media (min-width: 1400px) {
+@media (max-width: 1024px) {
+ 
   .hero-content {
-    max-width: 40%;
+    max-width: 80%;
+  }
+  .hero-image-container {
+    width: 250px;
+    height: 250px;
   }
 }
 
+@media (max-width: 768px) {
+ 
+  .hero-content {
+    max-width: 90%;
+  }
+  .hero-image-container {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 435px) {
+  h1, h2, h3 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 14px;
+  }
+  .hero-content {
+    max-width: 95%;
+  }
+  .hero-image-container {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 320px) {
+  h1, h2, h3 {
+    font-size: 16px;
+  }
+  p {
+    font-size: 12px;
+  }
+  .hero-content {
+    max-width: 98%;
+  }
+  .hero-image-container {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+}
+
+
 @media (max-width: 1024px) {
-  .project-cards, 
-  .education-container, 
-  .skills-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+
+  .hero-content {
+    max-width: 80%;
+  }
+  .hero-image-container {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .hero-content {
+    max-width: 90%;
+  }
+  .hero-image-container {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 435px) {
+  h1, h2, h3 {
+    font-size: 20px;
+  }
+  p {
+    font-size: 14px;
+  }
+  .hero-content {
+    max-width: 95%;
+  }
+  .hero-image-container {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 320px) {
+  h1, h2, h3 {
+    font-size: 16px;
+  }
+  p {
+    font-size: 12px;
+  }
+  .hero-content {
+    max-width: 98%;
+  }
+  .hero-image-container {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .project-cards, .education-container, .skills-container {
+    display: flex; /
+    justify-content: space-between; 
+    flex-wrap: wrap;
+  }
+
+  .card, .education-item, .skill {
+    flex: 0 0 30%; 
+    margin: 10px; 
   }
 }
 
@@ -53,7 +171,7 @@ body.dark-mode {
   --nav-bg: rgba(255, 255, 255, 0.9);
   --nav-bg-hover: rgba(255, 255, 255, 1);
   --hero-gradient: linear-gradient(45deg, #f8f9fa, #dee2e6);
-  --icon-filter: invert(1); /* Added icon filter for dark mode */
+  --icon-filter: invert(1); 
 }
 
 /* Navbar */
@@ -70,7 +188,7 @@ body.dark-mode {
   z-index: 10;
   transition: background 0.3s ease-in-out;
   backdrop-filter: blur(10px);
-  /* Add a subtle blur effect */
+  
 }
 
 .navbar:hover {
@@ -220,17 +338,12 @@ body.dark-mode {
 /* Typewriter Animation */
 .typewriter {
   overflow: hidden;
-  /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid var(--accent-color);
-  /* The typwriter cursor */
+  
+  border-right: .15em solid var(--accent-color);  
   white-space: nowrap;
-  /* Keeps the content on a single line */
-  margin: 0 auto;
-  /* Gives that scrolling effect as the typing happens */
+  margin: 0 auto; 
   letter-spacing: .15em;
-  /* Adjust as needed */
-  animation: typing 2.5s steps(40, end),
-    /* Adjust the speed and steps as you like */
+  animation: typing 2.5s steps(40, end)
     blink-caret .75s step-end infinite;
 
 }
@@ -359,18 +472,19 @@ body.dark-mode #theme-toggle-svg #moon-path {
 }
 
 .view-demo-button:hover {
-  background-color: darken(var(--accent-color), 10%); /* Darken on hover */
+  background-color: darken(var(--accent-color), 10%); 
   transform: translateY(-5px);
 }
 
+/* Slider Controls/Scroll bar*/
 .slider-controls {
   position: absolute;
   top: 50%;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  transform: translateY(-50%); /* Center vertically */
-  z-index: 50; /* Ensure controls are on top */
+  transform: translateY(-50%); 
+  z-index: 50; 
 }
 
 .prev-button, 
@@ -409,7 +523,7 @@ body.dark-mode #theme-toggle-svg #moon-path {
 /* Responsiveness */
 @media (max-width: 768px) {
   .card {
-    flex: 0 0 100%; /* Each card takes full width on smaller screens */
+    flex: 0 0 100%; 
   }
 }
 
@@ -559,7 +673,7 @@ a {
   transform: scale(1.2); /* Slightly scale up on hover */
 }
 
-/* ... (Removed redundant social media icon styles) ... */
+
 
 /* Scroll Progress */
 .scroll-progress {
@@ -742,7 +856,7 @@ a {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background 0.3s ease-in-out, transform 0.2s;
 }
-/*button section*/
+/*Button section*/
 .btn:hover {
   transform: scale(1.05);
   background: linear-gradient(135deg, #ff7575, #e63b3b);
@@ -766,17 +880,17 @@ a {
 }
 .fade-out {
   opacity: 0;
-  transition: opacity 0.5s ease-in-out; /* Adjust duration as needed */
+  transition: opacity 0.5s ease-in-out; 
 }
 
 /* PROFILE VIEWS*/
 
 #profile-views {
-  transition: transform 0.2s ease; /* Add a transition */
+  transition: transform 0.2s ease; 
 }
 
 #profile-views.updated {
-  animation: bump 0.3s ease; /* Apply the animation */
+  animation: bump 0.3s ease; 
 }
 
 @keyframes bump {
@@ -785,47 +899,7 @@ a {
   100% { transform: scale(1); }
 }
 
-
-
-.motivation-button-section {
-  padding: 50px 5%;
-  background-color: var(--bg-color);
-  text-align: center; /* Center the button within the section */
-}
-
-.view-motivation-button {
-  display: inline-block;
-  padding: 1rem 1.5rem;
-  font-size: 1rem;
-  background-color: var(--accent-color); /* Use your accent color */
-  color: white;
-  border: none;
-  border-radius: 25px; /* Match border-radius of other buttons */
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s, transform 0.3s;
-  margin-top: 1rem;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-}
-
-.view-motivation-button:hover {
-  background-color: #ffdfaa, 10%); /* Darken on hover */
-  transform: translateY(-5px); /* Slightly move up on hover */
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
-}
-
-#motivation .motivation-container {
-  text-align: center; /* Center the text */
-  max-width: 800px; /* Limit the width for better readability */
-  margin: 0 auto; /* Center the container horizontally */
-  padding: 20px; 
-}
-
-#motivation p {
-  line-height: 1.6; /* Adjust line spacing for better readability */
-  font-size: 1.1em; /* Slightly increase font size */
-}
-
+/* Certification Section*/
 .certifications-section {
   padding: 50px 5%;
   background-color: var(--bg-color);
@@ -835,14 +909,14 @@ a {
 .certifications-section h2 {
   font-size: 2.5rem;
   color: var(--accent-color);
-  margin-bottom: 20px; /* Add spacing below the heading */
+  margin-bottom: 20px; 
 }
 
 .certifications-container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px; /* Adds space between certifications */
+  gap: 20px; 
   margin-top: 30px;
 }
 
@@ -851,21 +925,21 @@ a {
   border-radius: 10px;
   padding: 20px;
   width: 300px; 
-  box-shadow: var(--box-shadow); /* Use your box-shadow variable for consistency */
+  box-shadow: var(--box-shadow); 
   transition: transform var(--transition-duration);
-  overflow: hidden; /* Hide image overflow for cleaner look */
+  overflow: hidden; 
 }
 
 .certification img {
   max-width: 100%;
   height: auto;
   margin-bottom: 10px;
-  display: block; /* Prevents image from affecting alignment */
-  transition: transform 0.3s ease; /* Add a transition for hover effect */
+  display: block; 
+  transition: transform 0.3s ease; 
 }
 
 .certification img:hover {
-  transform: scale(1.1); /* Slightly scale up image on hover */
+  transform: scale(1.1); 
 }
 
 .certification h3 {
@@ -879,9 +953,4 @@ a {
   line-height: 1.5; 
 }
 
-@media (max-width: 768px) {
-  .certification {
-    width: 90%; 
-    margin: 10px auto; 
-  }
-}
+
