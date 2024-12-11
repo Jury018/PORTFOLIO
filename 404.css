@@ -1,69 +1,85 @@
-@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Base styles */
 body {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  font-family: sans-serif;
   text-align: center;
-}
-
-/* Default styles for light mode */
-body {
   background-color: #f0f0f0;
+  color: #333;
 }
 
-body[data-theme="dark"] {
-  background-color: #222;
+/* Responsive layout */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .text h2 {
+    font-size: 18px;
+  }
+
+  .text p {
+    font-size: 12px;
+  }
+
+  .gif-container {
+    max-width: 70%;
+  }
 }
 
+@media (max-width: 435px) {
+  h1 {
+    font-size: 24px;
+  }
 
-h1,
-.text p,
-.text button {
-  color: #333; /* Dark color for light background */
+  .text h2 {
+    font-size: 16px;
+  }
+
+  .text p {
+    font-size: 8.8px;
+  }
 }
 
-.text {
-  font-family: "Poppins", sans-serif;
+@media (max-width: 320px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  .text h2 {
+    font-size: 14px;
+  }
+
+  .text p {
+    font-size: 7px;
+  }
+
+  .gif-container {
+    max-width: 60%;
+  }
 }
 
-.text h2 {
-  font-weight: 600;
-  font-size: 30px;
-}
-
-.text p {
-  font-size: 10px;
-  font-weight: 300;
-}
-
-button {
-  background: #ff153f;
-  width: 200px;
-  height: 40px;
-  margin: 20px;
-  border-radius: 20px;
+.home-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #ff000a;
   color: #fff;
-  border: none;
-  font-weight: 600;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
 }
 
-/* Styles for dark mode */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #222;
-  }
+.home-button:hover {
+  background-color: #555;
+}
 
-  h1,
-  .text p,
-  .text button {
-    color: #fff; /* Light color for dark background */
-  }
+.gif-container {
+  max-width: 100%; /* Ensure the GIF doesn't exceed the container width */
 }
