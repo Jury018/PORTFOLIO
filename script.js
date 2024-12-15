@@ -1,4 +1,4 @@
-// Your web app's Firebase configuration
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAITaYCKbTTvdu73i4y1pjazpycwtxs9PA",
   authDomain: "portfolio-76a88.firebaseapp.com",
@@ -38,7 +38,6 @@ async function updateViewCount() {
     console.error('Error updating view count:', error);
   }
 }
-
 
 // Call the function to update the view count when the page loads
 updateViewCount();
@@ -258,8 +257,7 @@ paginationDots.forEach((dot, index) => {
 updateSliderPosition();
 
 // *** Prevent default touchmove behavior to stop horizontal scrolling ***
-sliderTrack.addEventListener('touchmove', function(event) {
-  event.preventDefault(); 
+sliderTrack.addEventListener('touchmove', function(event) {  event.preventDefault(); 
 }, { passive: false }); 
 
 document.querySelectorAll('a').forEach(link => {
@@ -269,6 +267,14 @@ document.querySelectorAll('a').forEach(link => {
     const href = link.href;
 
     try {
+      // Check if the link is an external link (e.g., social media, resume)
+      if (href.startsWith('http') || href.startsWith('https')) {
+        // Open the link in a new tab
+        window.open(href, '_blank');
+        return;
+      }
+
+      // For internal links, fetch the resource and handle potential errors
       const response = await fetch(href);
 
       if (!response.ok) {
@@ -291,4 +297,3 @@ async function display404Page() {
 
   document.body.innerHTML = htmlContent;
 }
-
