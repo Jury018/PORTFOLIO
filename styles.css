@@ -162,7 +162,7 @@ body {
   --transition-duration: 0.3s;
   --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
-
+/*LIGHT MODE*/
 body.dark-mode {
   --bg-color: #fff;
   --text-color: #111;
@@ -565,8 +565,6 @@ body.dark-mode #theme-toggle-svg #moon-path {
   color: var(--text-color);
 }
 
-/* ... (Removed redundant hover effects) ... */
-
 .view-demo-button:hover {
   transform: translateY(-5px) scale(1.1);
   background-color: var(--accent-color);
@@ -598,7 +596,7 @@ body.dark-mode #theme-toggle-svg #moon-path {
   padding: 20px;
   margin: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-  transition: transform var(--transition-duration); /* Added transition */
+  transition: transform var(--transition-duration); 
 }
 
 .skill img {
@@ -641,39 +639,37 @@ body.dark-mode #theme-toggle-svg #moon-path {
 
 .social-media-icons {
       display: flex;
-      justify-content: center; /* Center the icons horizontally */
-      gap: 2rem; /* Add space between icons */
+      justify-content: center; 
+      gap: 2rem; 
       margin-top: 20px;
     }
 
     .social-media-icons a {
-      color: inherit; /* Inherit color from parent (for theme compatibility) */
-      font-size: 2rem; /* Adjust icon size as needed */
-      transition: transform 0.2s ease; /* Add a smooth hover transition */
+      color: inherit; 
+      font-size: 2rem; 
+      transition: transform 0.2s ease; 
     }
 
     .social-media-icons a:hover {
-      transform: scale(1.2); /* Slightly scale up on hover */
+      transform: scale(1.2); 
     }
 .social-media-icons {
   margin-top: 20px;
-  display: flex; /* Added flex display */
-  justify-content: center; /* Center icons */
-  gap: 2rem; /* Add space between icons */
+  display: flex; 
+  justify-content: center; 
+  gap: 2rem; 
 }
 
 .social-media-icons
 a {
-  color: inherit;  /* Inherit color for theme compatibility */
-  font-size: 2rem; /* Adjust icon size as needed */
-  transition: transform 0.2s ease; /* Smooth hover transition */
+  color: inherit;  
+  font-size: 2rem; 
+  transition: transform 0.2s ease; 
 }
 
 .social-media-icons a:hover {
-  transform: scale(1.2); /* Slightly scale up on hover */
+  transform: scale(1.2); 
 }
-
-
 
 /* Scroll Progress */
 .scroll-progress {
